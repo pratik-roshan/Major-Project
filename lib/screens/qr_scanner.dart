@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 
@@ -20,20 +21,17 @@ class _ImageScannerState extends State<ImageScanner> {
             children: [
               ElevatedButton(
                 onPressed: () {},
-                child: Text(
-                  'Image',
-                  style: TextStyle(fontSize: 18),
-                ),
+                child: Icon(Icons.image, size: 40),
               ),
               SizedBox(
                 height: 50,
               ),
-              ElevatedButton(
-                onPressed: () {},
-                child: Text(
-                  'Camera',
-                  style: TextStyle(fontSize: 18),
-                ),
+              SizedBox(
+                width: 1800,
+                height: 100,
+                // alignment: Alignment.center,
+                child: FloatingActionButton(
+                    onPressed: () {}, child: Icon(Icons.camera_alt, size: 60)),
               ),
             ],
           )),
