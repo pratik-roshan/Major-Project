@@ -21,17 +21,17 @@ class _ImageScannerState extends State<ImageScanner> {
             children: [
               ElevatedButton(
                 onPressed: () {},
-                child: Icon(Icons.image, size: 40),
+                child: Icon(Icons.image),
               ),
               SizedBox(
-                height: 50,
+                height: 30,
               ),
-              SizedBox(
+              Container(
                 width: 1800,
                 height: 100,
-                // alignment: Alignment.center,
+                alignment: Alignment.center,
                 child: FloatingActionButton(
-                    onPressed: () {}, child: Icon(Icons.camera_alt, size: 60)),
+                    onPressed: () {}, child: Icon(Icons.camera_alt, size: 30)),
               ),
             ],
           )),
