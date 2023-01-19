@@ -81,8 +81,8 @@ class _SignUpFormState extends State<SignUpForm> {
                 labelText: 'Password',
               ),
               controller: passwordController,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
+              validator: (password) {
+                if (password == null || password.isEmpty) {
                   return 'Enter your password';
                 }
               },
@@ -93,10 +93,10 @@ class _SignUpFormState extends State<SignUpForm> {
                 labelText: 'Confirm Password',
               ),
               controller: confirmpasswdController,
-              validator: (value) {
-                if (value == null || value.isEmpty) {
+              validator: (confirmpasswd) {
+                if (confirmpasswd == null || confirmpasswd.isEmpty) {
                   return 'Enter your confirm password';
-                } else if (value == password) {
+                } else if (password != confirmpasswd) {
                   return 'Not Matched with Password';
                 }
               },
