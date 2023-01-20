@@ -17,7 +17,7 @@ class _ImageScannerState extends State<ImageScanner> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.image),
+            Icon(Icons.folder_copy, size: 50,),
             ElevatedButton(
               onPressed: () {},
               child: Text('Image'),
