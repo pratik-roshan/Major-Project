@@ -36,7 +36,7 @@ class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
   var name;
   var email;
-  var password;
+  var passwd;
   var confirmpasswd;
   final nameController = TextEditingController();
   final emailController = TextEditingController();
@@ -85,6 +85,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 if (password == null || password.isEmpty) {
                   return 'Enter your password';
                 }
+                passwd = password;
               },
             ),
             TextFormField(
@@ -96,7 +97,7 @@ class _SignUpFormState extends State<SignUpForm> {
               validator: (confirmpasswd) {
                 if (confirmpasswd == null || confirmpasswd.isEmpty) {
                   return 'Enter your confirm password';
-                } else if (password != confirmpasswd) {
+                } else if (passwd != confirmpasswd) {
                   return 'Not Matched with Password';
                 }
               },
@@ -110,7 +111,7 @@ class _SignUpFormState extends State<SignUpForm> {
                     setState(() {
                       name = nameController.text;
                       email = emailController.text;
-                      password = passwordController.text;
+                      passwd = passwordController.text;
                       confirmpasswd = confirmpasswdController.text;
                     });
                   }
