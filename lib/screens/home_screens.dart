@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
 import 'package:apothecary/screens/account_screens.dart';
+import 'package:apothecary/screens/drawer_screen.dart';
 import 'package:apothecary/screens/hot_topic.dart';
 import 'package:apothecary/screens/middle_home.dart';
 import 'package:apothecary/screens/qr_scanner.dart';
@@ -40,7 +41,10 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('Apothecary'),
         centerTitle: false,
       ),
-      endDrawer: Drawer(),
+      endDrawer: Drawer(
+        width: MediaQuery.of(context).size.width*1,
+        child: MyDrawer(),
+      ),
 
 
       bottomNavigationBar: CurvedNavigationBar(

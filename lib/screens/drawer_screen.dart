@@ -11,7 +11,10 @@ class _MyDrawerState extends State<MyDrawer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Menu'),),
+      backgroundColor: Colors.greenAccent,
+      appBar: AppBar(
+        backgroundColor: Colors.green,
+        title: Text('Menu'),),
     );
   }
 }
