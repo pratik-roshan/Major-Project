@@ -58,7 +58,7 @@ class _SignUpFormState extends State<SignUpForm> {
               controller: nameController,
               validator: (value) {
                 if (value == null || value.isEmpty) {
-                  return 'Enter your email';
+                  return 'Enter your name';
                 }
               },
             ),
