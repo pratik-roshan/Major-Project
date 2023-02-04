@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:apothecary/details/detail.dart';
 import 'package:flutter/material.dart';
 
 class HomePageMiddle extends StatefulWidget {
@@ -16,6 +17,12 @@ class _HomePageMiddleState extends State<HomePageMiddle> {
       // ignore: prefer_const_literals_to_create_immutables
       children: [
         ListTile(
+          onTap: () {
+            Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Details_alovera()));
+          },
           // leading: Image(image: AssetImage('images/Plants/Aloe_vera.jpg')),
           leading: CircleAvatar(
               radius: 40,

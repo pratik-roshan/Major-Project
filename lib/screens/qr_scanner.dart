@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -17,7 +19,10 @@ class _ImageScannerState extends State<ImageScanner> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(Icons.folder_copy, size: 50,),
+            Icon(
+              Icons.folder_copy,
+              size: 50,
+            ),
             ElevatedButton(
               onPressed: () {},
               child: Text('Image'),
@@ -28,8 +33,13 @@ class _ImageScannerState extends State<ImageScanner> {
           ],
         ),
       ),
-      floatingActionButton:FloatingActionButton(
-          onPressed: () {}, child: const Icon(Icons.camera_alt, size: 30,),),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: const Icon(
+          Icons.camera_alt,
+          size: 30,
+        ),
+      ),
     );
   }
 }
