@@ -10,7 +10,7 @@ class HotTopics extends StatefulWidget {
 class _HotTopicsState extends State<HotTopics> {
   @override
   Widget build(BuildContext context) {
-    return Center(
+    return const Center(
         child: Text(
       'Welcome To Hot Topic!!!',
       style: TextStyle(fontWeight: FontWeight.bold),

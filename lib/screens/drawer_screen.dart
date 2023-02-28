@@ -15,40 +15,49 @@ class _MyDrawerState extends State<MyDrawer> {
       backgroundColor: Colors.greenAccent,
       appBar: AppBar(
         backgroundColor: Colors.green,
-        title: Text('Menu'),),
-        body: Container(
-          padding: EdgeInsets.symmetric(horizontal: 30,vertical: 25),
-          child: ListView(
-            children: [
-              ListTile(
-                title: Text('Settings', style: TextStyle(fontSize: 18,
-                fontWeight: FontWeight.bold),),
-                trailing:Icon(Icons.settings) ,
+        title: const Text('Menu'),
+      ),
+      body: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 25),
+        child: ListView(
+          children: [
+            const ListTile(
+              title: Text(
+                'Settings',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              ListTile(
-                title: Text('Contact Us', style: TextStyle(fontSize: 18,
-                fontWeight: FontWeight.bold),),
-                trailing:Icon(Icons.message),
+              trailing: Icon(Icons.settings),
+            ),
+            const ListTile(
+              title: Text(
+                'Contact Us',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              ListTile(
-                title: Text('See Specialist', style: TextStyle(fontSize: 18,
-                fontWeight: FontWeight.bold),),
-                trailing:Icon(Icons.medical_services) ,
+              trailing: Icon(Icons.message),
+            ),
+            const ListTile(
+              title: Text(
+                'See Specialist',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              ListTile(
-                onTap: () {
-                  Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const Developers()));
-                },
-                title: Text('Developers', style: TextStyle(fontSize: 18,
-                fontWeight: FontWeight.bold),),
-                trailing:Icon(Icons.developer_mode) ,
+              trailing: Icon(Icons.medical_services),
+            ),
+            ListTile(
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const Developers()));
+              },
+              title: const Text(
+                'Developers',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-            ],
-          ),
+              trailing: const Icon(Icons.developer_mode),
+            ),
+          ],
         ),
+      ),
     );
   }
 }
