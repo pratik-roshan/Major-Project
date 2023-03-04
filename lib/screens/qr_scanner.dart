@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 // import 'package:image_picker/image_picker.dart';
 
 class ImageScanner extends StatefulWidget {
@@ -11,6 +14,25 @@ class ImageScanner extends StatefulWidget {
 }
 
 class _ImageScannerState extends State<ImageScanner> {
+    late File _image;
+    // instanciate imagepicker
+    final picker= ImagePicker();
+  final imagePicker=ImagePicker();
+  Future getImage() async{
+    final image = await imagePicker.getImage(source:ImageSource.camera);
+    setState(() {
+      _image=File(image!.path);
+    });
+  } 
+  Future galleryImage() async{
+    final pickedFile = await picker.getImage(source: ImageSource.gallery);
+    if (pickedFile != null) {
+  return Image.file(File(pickedFile.path));
+}
+
+
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,7 +46,7 @@ class _ImageScannerState extends State<ImageScanner> {
               size: 50,
             ),
             ElevatedButton(
-              onPressed: () {},
+              onPressed: () =>galleryImage(),
               child: Text('Image'),
             ),
             // Icon(Icons.image),
@@ -34,7 +56,7 @@ class _ImageScannerState extends State<ImageScanner> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () =>getImage(),
         child: const Icon(
           Icons.camera_alt,
           size: 30,
