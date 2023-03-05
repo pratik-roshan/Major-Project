@@ -21,7 +21,7 @@ class _Details_aloveraState extends State<Details_alovera> {
       ),
       body: ListView(
         children: [
-          Image(image: AssetImage('images/Plants/Aloe_vera.jpg')),
+          Image(image: AssetImage('assets/images/Plants/Aloe_vera.jpg')),
           Container(
               padding: EdgeInsets.symmetric(horizontal: 32),
               child: Text(

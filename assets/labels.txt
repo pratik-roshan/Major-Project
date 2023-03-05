@@ -1,0 +1,12 @@
+0 Astilbe
+1 Bellflower
+2 Calendula
+3 Common Daisy
+4 Daffodil
+5 Dandelion
+6 Iris
+7 Magnolia
+8 Rose
+9 Sunflower
+10 Tulip
+11 Water Lily

@@ -3,6 +3,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_tflite/flutter_tflite.dart';
 import 'package:image_picker/image_picker.dart';
 // import 'package:image_picker/image_picker.dart';
 
@@ -14,23 +15,66 @@ class ImageScanner extends StatefulWidget {
 }
 
 class _ImageScannerState extends State<ImageScanner> {
-    late File _image;
-    // instanciate imagepicker
-    final picker= ImagePicker();
-  final imagePicker=ImagePicker();
-  Future getImage() async{
-    final image = await imagePicker.getImage(source:ImageSource.camera);
+  late File _image;
+  // instanciate imagepicker
+  final picker = ImagePicker();
+  final imagePicker = ImagePicker();
+  bool _loading = false;
+  List _predictions = [];
+
+  @override
+  void initState() {
+    super.initState();
+    loadmodel();
+  }
+
+  Future loadmodel() async {
+    Tflite.close();
+    String res;
+    res = (await Tflite.loadModel(
+        model: 'assets/flowers.tflite', labels: 'assets/labels.txt'))!;
+    print("Models loading status: $res");
+  }
+
+  Future imageClassification(File image) async {
+    var prediction = await Tflite.runModelOnImage(
+        path: image.path,
+        numResults: 2,
+        threshold: 0.6,
+        imageMean: 127.5,
+        imageStd: 127.5);
+
     setState(() {
-      _image=File(image!.path);
+      _predictions = prediction!;
+      _image = image;
+      _loading = true;
     });
-  } 
-  Future galleryImage() async{
-    final pickedFile = await picker.getImage(source: ImageSource.gallery);
-    if (pickedFile != null) {
-  return Image.file(File(pickedFile.path));
-}
+  }
 
+  @override
+  void dispose() {
+    super.dispose();
+  }
 
+  Future loadcamera() async {
+    final image = await imagePicker.pickImage(source: ImageSource.camera);
+    if (image == null) {
+      return null;
+    } else {
+      _image = File(image.path);
+    }
+  }
+
+  Future galleryImage() async {
+    final pickedFile = await picker.pickImage(source: ImageSource.gallery);
+    if (pickedFile == null) {
+      return null;
+    } else {
+      _image = File(pickedFile.path);
+    }
+    imageClassification(_image);
+    // return Image.file(File(pickedFile.path));
+    // }
   }
 
   @override
@@ -46,7 +90,7 @@ class _ImageScannerState extends State<ImageScanner> {
               size: 50,
             ),
             ElevatedButton(
-              onPressed: () =>galleryImage(),
+              onPressed: () => galleryImage(),
               child: Text('Image'),
             ),
             // Icon(Icons.image),
@@ -56,7 +100,7 @@ class _ImageScannerState extends State<ImageScanner> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () =>getImage(),
+        onPressed: () => loadcamera(),
         child: const Icon(
           Icons.camera_alt,
           size: 30,
