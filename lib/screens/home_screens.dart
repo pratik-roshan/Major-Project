@@ -24,6 +24,7 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Widget> meroWidget = <Widget>[
     HotTopics(),
     ImageScanner(),
+    // TfliteModel(),
     HomePageMiddle(),
     TextScanner(),
     MyAccount(),
