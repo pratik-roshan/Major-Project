@@ -25,7 +25,8 @@ class ImageScannerState extends State<ImageScanner> {
     Tflite.close();
     String res;
     res = (await Tflite.loadModel(
-        model: "assets/flowersmodel.tflite", labels: "assets/labels.txt"))!;
+        model: "assets/plants_model.tflite",
+        labels: "assets/labels_plants.txt"))!;
     print("Models loading status: $res");
   }
 
