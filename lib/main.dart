@@ -4,6 +4,7 @@ import 'package:apothecary/screens/home_screens.dart';
 import 'package:firebase_core/firebase_core.dart';
 
 import 'package:flutter/material.dart';
+import 'package:easy_splash_screen/easy_splash_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,7 +19,14 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Apothecary',
-      home: MyHomePage(),
+      home: EasySplashScreen(
+        navigator: MyHomePage(),
+        durationInSeconds: 2,
+        logoWidth: 75,
+        loadingText: const Text('Fetching Data...'),
+        logo: Image(image: AssetImage('images/logo.png')),
+        
+      )
     );
   }
 }
