@@ -18,16 +18,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Apothecary',
-      home: EasySplashScreen(
-        navigator: MyHomePage(),
-        durationInSeconds: 2,
-        logoWidth: 75,
-        loadingText: const Text('Fetching Data...'),
-        logo: Image(image: AssetImage('images/logo.png')),
-        
-      )
-    );
+        debugShowCheckedModeBanner: false,
+        title: 'Apothecary',
+        home: EasySplashScreen(
+          navigator: MyHomePage(),
+          durationInSeconds: 2,
+          logoWidth: 75,
+          loadingText: const Text('Fetching Data...'),
+          logo: Image(image: AssetImage('assets/images/logo.png')),
+        ));
   }
 }
