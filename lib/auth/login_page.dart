@@ -192,7 +192,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     GestureDetector(
                       onTap: () => AuthService().signInWithGoogle(),
                       child: const SquareTile(
-                        imagePath: 'images/google.jpg',
+                        imagePath: 'assets/images/google.jpg',
                       ),
                     ),
                     const SizedBox(width: 25.0),

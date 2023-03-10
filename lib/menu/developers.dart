@@ -16,10 +16,10 @@ class Developers extends StatelessWidget {
         mainAxisSpacing: 100.0,
         crossAxisSpacing: 10.0,
         children: [
-          Image.asset('images/developers/rupesh.jpg'),
-          Image.asset('images/developers/sairam.jpg'),
-          Image.asset('images/developers/pratik.jpg'),
-          Image.asset('images/developers/prashant.jpg'),
+          Image.asset('assets/images/developers/rupesh.jpg'),
+          Image.asset('assets/images/developers/sairam.jpg'),
+          Image.asset('assets/images/developers/pratik.jpg'),
+          Image.asset('assets/images/developers/prashant.jpg'),
         ],
       ),
     );
