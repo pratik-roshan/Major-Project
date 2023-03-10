@@ -32,8 +32,6 @@ dependencies:
   easy_splash_screen: ^1.0.4
   flutter_tflite: ^1.0.1
   fluttertoast: ^8.2.1
-  tflite: ^1.1.2
-  tflite_flutter: ^0.9.0
 
 dev_dependencies:
   flutter_test:
