@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "687904986448",
+    "project_id": "apothecary-cc7ea",
+    "storage_bucket": "apothecary-cc7ea.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687904986448:android:91112aaad5b8f43643c855",
+        "android_client_info": {
+          "package_name": "com.example.apothecary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "687904986448-7dl20htt2o0aca1nc789ao4nen0cs6qd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnTAi950rHPstANdKjEB9Bk2Lw0jQ3QWg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "687904986448-7dl20htt2o0aca1nc789ao4nen0cs6qd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "687904986448-i3hfvl26tusl3dsqgnb51dbs2g7gd2pj.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.apothecary"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
