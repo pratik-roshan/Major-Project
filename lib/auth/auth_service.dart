@@ -21,6 +21,7 @@ class AuthService {
       UserCredential userCredential =
           await FirebaseAuth.instance.signInWithCredential(credential);
       User? user = userCredential.user;
+      print(user!.displayName);
       if (user != null) {
         if (userCredential.additionalUserInfo!.isNewUser) {
           await FirebaseFirestore.instance.collection('users').add({
@@ -35,7 +36,8 @@ class AuthService {
       // finally, lets sign in
       return result;
     } catch (e) {
-      Fluttertoast.showToast(msg: "Error");
+      // Fluttertoast.showToast(msg: e);
+      print(e);
     }
     return result;
   }
