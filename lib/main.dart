@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           durationInSeconds: 2,
           logoWidth: 75,
           loadingText: const Text('Fetching Data...'),
-          logo: Image(image: AssetImage('assets/images/logo.png')),
+          logo: Image(image: AssetImage('assets/images/1.png')),
         ));
   }
 }
