@@ -18,17 +18,14 @@ class _HomePageMiddleState extends State<HomePageMiddle> {
       children: [
         ListTile(
           onTap: () {
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const Details_alovera()));
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const Details_tulip()));
           },
           // leading: Image(image: AssetImage('images/Plants/Aloe_vera.jpg')),
           leading: CircleAvatar(
               radius: 40,
-              backgroundImage:
-                  AssetImage('assets/images/Plants/Aloe_vera.jpg')),
-          title: Text('Aloe Vera'),
+              backgroundImage: AssetImage('assets/images/Plants/tulip.jpg')),
+          title: Text('Tulip'),
           subtitle: Text('click to preview'),
           trailing: Icon(Icons.info),
         ),
@@ -36,9 +33,8 @@ class _HomePageMiddleState extends State<HomePageMiddle> {
           // leading: Image(image: AssetImage('images/Plants/ashwagandha.png')),
           leading: CircleAvatar(
               radius: 40,
-              backgroundImage:
-                  AssetImage('assets/images/Plants/ashwagandha.png')),
-          title: Text('Ashwagandha'),
+              backgroundImage: AssetImage('assets/images/Plants/Rose.jpg')),
+          title: Text('Rose'),
           subtitle: Text('click to preview'),
           trailing: Icon(Icons.info),
         ),
@@ -47,8 +43,8 @@ class _HomePageMiddleState extends State<HomePageMiddle> {
           leading: CircleAvatar(
               radius: 40,
               backgroundImage:
-                  AssetImage('assets/images/Plants/calendula.jpg')),
-          title: Text('Calendula'),
+                  AssetImage('assets/images/Plants/black-eyed-susan.jpg')),
+          title: Text('Black Eyed Susan'),
           subtitle: Text('click to preview'),
           trailing: Icon(Icons.info),
         ),
@@ -58,8 +54,8 @@ class _HomePageMiddleState extends State<HomePageMiddle> {
           leading: CircleAvatar(
               radius: 40,
               backgroundImage:
-                  AssetImage('assets/images/Plants/lavender-flower-seeds.jpg')),
-          title: Text('Lavender'),
+                  AssetImage('assets/images/Plants/sunflower.jpg')),
+          title: Text('Sunflower'),
           subtitle: Text('click to preview'),
           trailing: Icon(Icons.info),
         ),
@@ -68,9 +64,9 @@ class _HomePageMiddleState extends State<HomePageMiddle> {
           //     image: AssetImage('images/Plants/methi-kasturi-fenugreek.jpg')),
           leading: CircleAvatar(
               radius: 40,
-              backgroundImage: AssetImage(
-                  'assets/images/Plants/methi-kasturi-fenugreek.jpg')),
-          title: Text('Fenugreek'),
+              backgroundImage:
+                  AssetImage('assets/images/Plants/water-lily.jpg')),
+          title: Text('Water Lily'),
           subtitle: Text('click to preview'),
           trailing: Icon(Icons.info),
         ),
@@ -78,8 +74,9 @@ class _HomePageMiddleState extends State<HomePageMiddle> {
           // leading: Image(image: AssetImage('images/Plants/Neem.webp')),
           leading: CircleAvatar(
               radius: 40,
-              backgroundImage: AssetImage('assets/images/Plants/Neem.webp')),
-          title: Text('Neem'),
+              backgroundImage:
+                  AssetImage('assets/images/Plants/Dandelion.jpg')),
+          title: Text('Dandelion'),
           subtitle: Text('click to preview'),
           trailing: Icon(Icons.info),
         ),
@@ -87,8 +84,9 @@ class _HomePageMiddleState extends State<HomePageMiddle> {
           // leading: Image(image: AssetImage('images/Plants/rosemary.jpg')),
           leading: CircleAvatar(
               radius: 40,
-              backgroundImage: AssetImage('assets/images/Plants/rosemary.jpg')),
-          title: Text('Rosemary'),
+              backgroundImage:
+                  AssetImage('assets/images/Plants/California-Poppy.webp')),
+          title: Text('California Poppy'),
           subtitle: Text('click to preview'),
           trailing: Icon(Icons.info),
         ),
@@ -98,9 +96,9 @@ class _HomePageMiddleState extends State<HomePageMiddle> {
           // 'images/Plants/thyme-thymus-vulgaris-herb-seeds.jpg')),
           leading: CircleAvatar(
               radius: 40,
-              backgroundImage: AssetImage(
-                  'assets/images/Plants/thyme-thymus-vulgaris-herb-seeds.jpg')),
-          title: Text('Thyme'),
+              backgroundImage:
+                  AssetImage('assets/images/Plants/Magnolia.webp')),
+          title: Text('Magnolia'),
           subtitle: Text('click to preview'),
           trailing: Icon(Icons.info),
         ),
@@ -109,21 +107,78 @@ class _HomePageMiddleState extends State<HomePageMiddle> {
           //     Image(image: AssetImage('images/Plants/Tulasi_Holy_basil.jpg')),
           leading: CircleAvatar(
               radius: 40,
-              backgroundImage:
-                  AssetImage('assets/images/Plants/Tulasi_Holy_basil.jpg')),
-          title: Text('Tulasi'),
+              backgroundImage: AssetImage('assets/images/Plants/Iris1.jpg')),
+          title: Text('Iris'),
           subtitle: Text('click to preview'),
           trailing: Icon(Icons.info),
         ),
         ListTile(
-          // leading: Image(
-          //     image: AssetImage(
-          //         'images/Plants/weed-marijuana-polling-tobacco.jpg')),
           leading: CircleAvatar(
               radius: 40,
-              backgroundImage: AssetImage(
-                  'assets/images/Plants/weed-marijuana-polling-tobacco.jpg')),
-          title: Text('Weed'),
+              backgroundImage:
+                  AssetImage('assets/images/Plants/Carnation.jpg')),
+          title: Text('Carnation'),
+          subtitle: Text('click to preview'),
+          trailing: Icon(Icons.info),
+        ),
+        ListTile(
+          leading: CircleAvatar(
+              radius: 40,
+              backgroundImage:
+                  AssetImage('assets/images/Plants/bellflower.jpg')),
+          title: Text('Bellflower'),
+          subtitle: Text('click to preview'),
+          trailing: Icon(Icons.info),
+        ),
+        ListTile(
+          leading: CircleAvatar(
+              radius: 40,
+              backgroundImage:
+                  AssetImage('assets/images/Plants/Common-Daisy.jpg')),
+          title: Text('Common Daisy'),
+          subtitle: Text('click to preview'),
+          trailing: Icon(Icons.info),
+        ),
+        ListTile(
+          leading: CircleAvatar(
+              radius: 40,
+              backgroundImage:
+                  AssetImage('assets/images/Plants/Coreopsis.jpg')),
+          title: Text('Coreopsis'),
+          subtitle: Text('click to preview'),
+          trailing: Icon(Icons.info),
+        ),
+        ListTile(
+          leading: CircleAvatar(
+              radius: 40,
+              backgroundImage:
+                  AssetImage('assets/images/Plants/calendula.webp')),
+          title: Text('Calendula'),
+          subtitle: Text('click to preview'),
+          trailing: Icon(Icons.info),
+        ),
+        ListTile(
+          leading: CircleAvatar(
+              radius: 40,
+              backgroundImage: AssetImage('assets/images/Plants/Astilbe.jpg')),
+          title: Text('Astilbe'),
+          subtitle: Text('click to preview'),
+          trailing: Icon(Icons.info),
+        ),
+        ListTile(
+          leading: CircleAvatar(
+              radius: 40,
+              backgroundImage: AssetImage('assets/images/Plants/Daffodil.jpg')),
+          title: Text('Daffodil'),
+          subtitle: Text('click to preview'),
+          trailing: Icon(Icons.info),
+        ),
+        ListTile(
+          leading: CircleAvatar(
+              radius: 40,
+              backgroundImage:
+                  AssetImage('assets/images/Plants/Aloe_vera.jpg')),
+          title: Text('Aloe Vera'),
           subtitle: Text('click to preview'),
           trailing: Icon(Icons.info),
         ),
@@ -131,4 +186,3 @@ class _HomePageMiddleState extends State<HomePageMiddle> {
     );
   }
 }
-
