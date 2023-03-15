@@ -2,14 +2,14 @@
 
 import 'package:flutter/material.dart';
 
-class Details_alovera extends StatefulWidget {
-  const Details_alovera({Key? key}) : super(key: key);
+class Details_tulip extends StatefulWidget {
+  const Details_tulip({Key? key}) : super(key: key);
 
   @override
-  State<Details_alovera> createState() => _Details_aloveraState();
+  State<Details_tulip> createState() => _Details_tulipState();
 }
 
-class _Details_aloveraState extends State<Details_alovera> {
+class _Details_tulipState extends State<Details_tulip> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,52 +21,52 @@ class _Details_aloveraState extends State<Details_alovera> {
       ),
       body: ListView(
         children: [
-          Image(image: AssetImage('assets/images/Plants/Aloe_vera.jpg')),
+          Image(image: AssetImage('assets/images/Plants/tulip.jpg')),
           Container(
               padding: EdgeInsets.symmetric(horizontal: 32),
               child: Text(
-                'Aloe Vera',
+                'Tulip',
                 style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
               )),
           Container(
               padding: EdgeInsets.symmetric(horizontal: 32),
-              child: Text('Ease systematic inflammation',
+              child: Text('Scientific Name: Tulipa',
                   style: TextStyle(
                     fontSize: 20,
                   ))),
           Container(
               padding: EdgeInsets.symmetric(horizontal: 32),
-              child: Text('Relieves constipation ',
+              child: Text('Has Anti-Septic Properties',
                   style: TextStyle(
                     fontSize: 20,
                   ))),
           Container(
               padding: EdgeInsets.symmetric(horizontal: 32),
-              child: Text('Stabilizes blood sugar ',
+              child: Text('Remedy for Cough and Cold',
                   style: TextStyle(
                     fontSize: 20,
                   ))),
           Container(
               padding: EdgeInsets.symmetric(horizontal: 32),
-              child: Text('Improves skin condition',
+              child: Text('Reduces Risk of Cancer',
                   style: TextStyle(
                     fontSize: 20,
                   ))),
           Container(
               padding: EdgeInsets.symmetric(horizontal: 32),
-              child: Text('Helps reduce acid reflux',
+              child: Text('Used for Sinus Pain',
                   style: TextStyle(
                     fontSize: 20,
                   ))),
           Container(
               padding: EdgeInsets.symmetric(horizontal: 32),
-              child: Text('Lower high blood pressure',
+              child: Text('It has diuretic properties',
                   style: TextStyle(
                     fontSize: 20,
                   ))),
           Container(
               padding: EdgeInsets.symmetric(horizontal: 32),
-              child: Text('Accelerates wound healing',
+              child: Text('Can be also used for Cosmetics',
                   style: TextStyle(
                     fontSize: 20,
                   ))),
