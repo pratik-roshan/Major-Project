@@ -25,8 +25,7 @@ class ImageScannerState extends State<ImageScanner> {
     Tflite.close();
     String res;
     res = (await Tflite.loadModel(
-        model: "assets/plants_model.tflite",
-        labels: "assets/labels_plants.txt"))!;
+        model: "assets/vgg16.tflite", labels: "assets/labels_plants.txt"))!;
     print("Models loading status: $res");
   }
 
@@ -73,7 +72,7 @@ class ImageScannerState extends State<ImageScanner> {
                         child: Container(
                           margin: EdgeInsets.all(10),
                           child: Text(
-                            "${result['label']} - ${result['confidence'].toStringAsFixed(2)}",
+                            "${result['label']}",
                             style: const TextStyle(
                                 color: Colors.red, fontSize: 20),
                           ),
