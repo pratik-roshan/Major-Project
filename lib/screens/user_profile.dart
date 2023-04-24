@@ -261,7 +261,7 @@ class _UserProfileState extends State<UserProfile> {
                 onPressed: signUserOut,
                 child: const Text(
                   'LogOut',
-                  style: TextStyle(fontSize: 23, color: Colors.greenAccent),
+                  style: TextStyle(fontSize: 23, color: Colors.black),
                 ),
               )
               // Padding(
