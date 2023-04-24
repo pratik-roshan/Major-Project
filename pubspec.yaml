@@ -36,6 +36,7 @@ dependencies:
   flutter_tflite: ^1.0.1
   fluttertoast: ^8.2.1
   get: ^4.6.5
+  http: ^0.13.5
 
 dev_dependencies:
   flutter_test:
