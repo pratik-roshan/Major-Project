@@ -23,10 +23,10 @@ class _MyDrawerState extends State<MyDrawer> {
           children: [
             const ListTile(
               title: Text(
-                'Settings',
+                'About Us',
                 style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              trailing: Icon(Icons.settings),
+              trailing: Icon(Icons.info_outline_rounded),
             ),
             const ListTile(
               title: Text(
