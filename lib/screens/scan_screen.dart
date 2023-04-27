@@ -1,53 +1,66 @@
+// search_screen.dart
+
 import 'package:flutter/material.dart';
+import 'package:apothecary/models/plants_model.dart';
+import 'package:apothecary/services/search_service.dart';
+import 'package:apothecary/misc/searchwidget.dart';
 
-class TextScanner extends StatefulWidget {
-  const TextScanner({Key? key}) : super(key: key);
-
+class SearchScreen extends StatefulWidget {
   @override
-  State<TextScanner> createState() => _TextScannerState();
+  _SearchScreenState createState() => _SearchScreenState();
 }
 
-class _TextScannerState extends State<TextScanner> {
+class _SearchScreenState extends State<SearchScreen> {
+  late Future<List<Plants>> _plants;
+
+  @override
+  void initState() {
+    super.initState();
+    _plants = SearchService.search('');
+  }
+
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-    return Column(
-      children: [
-        SizedBox(
-          height: size.height * 0.2,
-          child: Stack(
-            children: [
-              Container(
-                height: size.height * 0.2 - 17,
-                decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 102, 195, 105),
-                    borderRadius: BorderRadius.only(
-                        bottomLeft: Radius.circular(36),
-                        bottomRight: Radius.circular(36))),
-              ),
-              Positioned(
-                  bottom: 0,
-                  right: 0,
-                  left: 0,
-                  child: Container(
-                    height: 54,
-                    margin: const EdgeInsets.only(right: 15, left: 15),
-                    padding: const EdgeInsets.symmetric(horizontal: 15),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(20),
-                    ),
-                    child: const TextField(
-                      decoration: InputDecoration(
-                          hintText: 'Search',
-                          enabledBorder: InputBorder.none,
-                          focusedBorder: InputBorder.none),
-                    ),
-                  ))
-            ],
+    return Scaffold(
+      // appBar: AppBar(
+      //   backgroundColor: Colors.greenAccent,
+      //   title: Text('Search'),
+      // ),
+      body: Column(
+        children: [
+          SearchWidget(
+            onSearch: (query) {
+              setState(() {
+                _plants = SearchService.search(query);
+              });
+            },
           ),
-        )
-      ],
+          Expanded(
+            child: FutureBuilder<List<Plants>>(
+              future: _plants,
+              builder: (context, snapshot) {
+                if (snapshot.hasData) {
+                  final results = snapshot.data!;
+                  return ListView.builder(
+                    itemCount: results.length,
+                    itemBuilder: (context, index) {
+                      final res = results[index];
+                      return ListTile(
+                        title: Text(res.name),
+                        subtitle: Text(res.sname),
+                      );
+                    },
+                  );
+                } else if (snapshot.hasError) {
+                  return Text('${snapshot.error}');
+                } else {
+                  return Center(child: CircularProgressIndicator());
+                }
+              },
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
