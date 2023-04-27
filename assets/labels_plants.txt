@@ -1,17 +1,17 @@
-0 Aloe Vera
-1 Astilbe
-2 Bellflower
-3 Black Eyed Susan
-4 Calendula
-5 California Poppy
-6 Carnation
-7 Common Daisy
-8 Coreopsis
-9 Daffodil
-10 Dandelion
-11 Iris
-12 Magnolia
-13 Rose
-14 Sunflower
-15 Tulip
-16 Water Lily
+Aloe Vera
+Astilbe
+Bellflower
+Black Eyed Susan
+Calendula
+California Poppy
+Carnation
+Common Daisy
+Coreopsis
+Daffodil
+Dandelion
+Iris
+Magnolia
+Rose
+Sunflower
+Tulip
+Water Lily
