@@ -2,7 +2,7 @@
 
 // import 'package:apothecary/screens/account_screens.dart';
 import 'package:apothecary/screens/drawer_screen.dart';
-import 'package:apothecary/screens/hot_topic.dart';
+// import 'package:apothecary/screens/hot_topic.dart';
 import 'package:apothecary/screens/middle_home.dart';
 import 'package:apothecary/screens/qr_scanner.dart';
 import 'package:apothecary/screens/scan_screen.dart';
@@ -20,29 +20,28 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _selectedIndex = 2;
+  int _selectedIndex = 0;
   final GlobalKey<CurvedNavigationBarState> _bottomNavigationBar = GlobalKey();
   List<Widget> meroWidget = <Widget>[
-    HotTopics(),
+    HomePageMiddle(),
+    // HotTopics(),
     ImageScanner(),
     // TfliteModel(),
-    HomePageMiddle(),
-    TextScanner(),
+    SearchScreen(),
     MyAccount(),
   ];
 
-  Future<bool> _onWillPop() async{
-    if (_selectedIndex == 2){
+  Future<bool> _onWillPop() async {
+    if (_selectedIndex == 0) {
       await SystemNavigator.pop();
     }
 
-    Future.delayed(Duration(milliseconds: 300),(){
+    Future.delayed(Duration(milliseconds: 300), () {
       setState(() {
-        _selectedIndex=2;
+        _selectedIndex = 0;
       });
     });
-    return _bottomNavigationBar.currentState ==2;
-
+    return _bottomNavigationBar.currentState == 0;
   }
 
   @override
@@ -60,7 +59,6 @@ class _MyHomePageState extends State<MyHomePage> {
           width: MediaQuery.of(context).size.width * 1,
           child: MyDrawer(),
         ),
-      
         bottomNavigationBar: CurvedNavigationBar(
           key: _bottomNavigationBar,
           index: _selectedIndex,
@@ -68,14 +66,14 @@ class _MyHomePageState extends State<MyHomePage> {
           color: Colors.green,
           items: [
             Icon(
-              Icons.favorite,
+              Icons.home,
               size: 30,
             ),
             Icon(
               Icons.qr_code_scanner,
               size: 30,
             ),
-            Icon(Icons.home, size: 30),
+            // Icon(Icons.home, size: 30),
             Icon(Icons.search, size: 30),
             Icon(Icons.person_outline, size: 30)
           ],
@@ -86,7 +84,6 @@ class _MyHomePageState extends State<MyHomePage> {
             });
           },
         ),
-    
         body: Center(child: meroWidget.elementAt(_selectedIndex)),
       ),
     );

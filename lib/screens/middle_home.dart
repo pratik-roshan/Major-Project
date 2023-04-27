@@ -20,7 +20,7 @@ class _HomePageMiddleState extends State<HomePageMiddle> {
     super.initState();
   }
 
-  String baseUrl = 'http://10.0.2.2:8000';
+  String baseUrl = 'https://apothecary.up.railway.app/';
 
   Future<List> getAllInfo() async {
     try {
