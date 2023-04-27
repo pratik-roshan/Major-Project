@@ -4,23 +4,23 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class Details_tulip extends StatefulWidget {
-  const Details_tulip({Key? key}) : super(key: key);
+class Details_Plant extends StatefulWidget {
+  const Details_Plant({Key? key}) : super(key: key);
 
   @override
-  State<Details_tulip> createState() => _Details_tulipState();
+  State<Details_Plant> createState() => _Details_PlantState();
 }
 
-class _Details_tulipState extends State<Details_tulip> {
+class _Details_PlantState extends State<Details_Plant> {
   @override
   void initState() {
-    getAllInfo();
+    getSpecificInfo();
     super.initState();
   }
 
-  String baseUrl = 'http://10.0.2.2:8000/floinfo/';
+  String baseUrl = 'http://10.0.0.2:8000/index/1';
 
-  Future<List> getAllInfo() async {
+  Future<List> getSpecificInfo() async {
     try {
       var response = await http.get(Uri.parse(baseUrl));
       print(response.body);

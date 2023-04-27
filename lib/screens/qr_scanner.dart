@@ -142,7 +142,7 @@ class ImageScannerState extends State<ImageScanner> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const Details_tulip()));
+                              builder: (context) => const Details_Plant()));
                     },
                     // leading: CircleAvatar(
                     //   radius: 40,

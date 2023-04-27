@@ -52,12 +52,12 @@ class _HomePageMiddleState extends State<HomePageMiddle> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => const Details_tulip()));
+                              builder: (context) => const Details_Plant()));
                     },
-                    // leading: CircleAvatar(
-                    //   radius: 40,
-                    //   backgroundImage: snapshot.data![i]['photo'],
-                    // ),
+                    leading: CircleAvatar(
+                      radius: 40,
+                      backgroundImage: NetworkImage(snapshot.data![i]['photo']),
+                    ),
                     title: Text(
                       snapshot.data![i]['name'],
                       style: TextStyle(fontSize: 20),
