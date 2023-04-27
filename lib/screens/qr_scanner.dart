@@ -1,8 +1,11 @@
 // ignore_for_file: prefer_const_constructors
 import 'dart:io';
+import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 import 'package:flutter_tflite/flutter_tflite.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:apothecary/details/detail.dart';
 
 class ImageScanner extends StatefulWidget {
   const ImageScanner({Key? key}) : super(key: key);
@@ -25,7 +28,8 @@ class ImageScannerState extends State<ImageScanner> {
     Tflite.close();
     String res;
     res = (await Tflite.loadModel(
-        model: "assets/vgg16.tflite", labels: "assets/labels_plants.txt"))!;
+        model: "assets/plants_model.tflite",
+        labels: "assets/labels_plants.txt"))!;
     print("Models loading status: $res");
   }
 
@@ -43,6 +47,38 @@ class ImageScannerState extends State<ImageScanner> {
       imageSelect = true;
     });
   }
+
+  Future<List> getAllInfo({required String label}) async {
+    try {
+      String baseUrl = 'https://apothecary.up.railway.app?search=$label';
+      var response = await http.get(Uri.parse(baseUrl));
+      print(response.body);
+      if (response.statusCode == 200) {
+        print(response.body);
+        return jsonDecode(response.body);
+      } else {
+        return Future.error('Server error');
+      }
+    } catch (e) {
+      return Future.error(e);
+    }
+  }
+
+  // Future<List> getAllInfo() async {
+  //   try {
+  //     String baseUrl = 'https://apothecary.up.railway.app';
+  //     var response = await http.get(Uri.parse(baseUrl));
+  //     print(response.body);
+  //     if (response.statusCode == 200) {
+  //       print(response.body);
+  //       return jsonDecode(response.body);
+  //     } else {
+  //       return Future.error('Server error');
+  //     }
+  //   } catch (e) {
+  //     return Future.error(e);
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -92,6 +128,47 @@ class ImageScannerState extends State<ImageScanner> {
     );
   }
 
+  Widget buildCard(BuildContext context) {
+    return FutureBuilder<List>(
+        future: getAllInfo(label: _results[0]['label']),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            // print(snapshot);
+            return ListView.builder(
+                itemCount: snapshot.data?.length,
+                itemBuilder: (context, i) {
+                  return ListTile(
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const Details_tulip()));
+                    },
+                    // leading: CircleAvatar(
+                    //   radius: 40,
+                    //   backgroundImage: snapshot.data![i]['photo'],
+                    // ),
+                    title: Text(
+                      snapshot.data![i]['name'],
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    subtitle: Text(
+                      snapshot.data![i]['sname'],
+                      style: TextStyle(fontSize: 15),
+                    ),
+                    // trailing: Icon(
+                    //   Icons.info,
+                    // ),
+                  );
+                });
+          } else {
+            return const Center(
+              child: Text('No Data'),
+            );
+          }
+        });
+  }
+
   Future pickImage() async {
     final ImagePicker picker = ImagePicker();
     final pickedFile = await picker.pickImage(
@@ -99,6 +176,7 @@ class ImageScannerState extends State<ImageScanner> {
     );
     File image = File(pickedFile!.path);
     imageClassification(image);
+    await getAllInfo(label: _results[0]['label']);
   }
 
   Future loadCamera() async {
