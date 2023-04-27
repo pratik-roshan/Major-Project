@@ -20,7 +20,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _selectedIndex = 0;
+  int _selectedIndex = 3;
   final GlobalKey<CurvedNavigationBarState> _bottomNavigationBar = GlobalKey();
   List<Widget> meroWidget = <Widget>[
     HomePageMiddle(),
@@ -32,16 +32,16 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
 
   Future<bool> _onWillPop() async {
-    if (_selectedIndex == 0) {
+    if (_selectedIndex == 3) {
       await SystemNavigator.pop();
     }
 
     Future.delayed(Duration(milliseconds: 300), () {
       setState(() {
-        _selectedIndex = 0;
+        _selectedIndex = 3;
       });
     });
-    return _bottomNavigationBar.currentState == 0;
+    return _bottomNavigationBar.currentState == 3;
   }
 
   @override

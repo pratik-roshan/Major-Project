@@ -21,46 +21,40 @@ class _SearchScreenState extends State<SearchScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // appBar: AppBar(
-      //   backgroundColor: Colors.greenAccent,
-      //   title: Text('Search'),
-      // ),
-      body: Column(
-        children: [
-          SearchWidget(
-            onSearch: (query) {
-              setState(() {
-                _plants = SearchService.search(query);
-              });
+    return Column(
+      children: [
+        SearchWidget(
+          onSearch: (query) {
+            setState(() {
+              _plants = SearchService.search(query);
+            });
+          },
+        ),
+        Expanded(
+          child: FutureBuilder<List<Plants>>(
+            future: _plants,
+            builder: (context, snapshot) {
+              if (snapshot.hasData) {
+                final results = snapshot.data!;
+                return ListView.builder(
+                  itemCount: results.length,
+                  itemBuilder: (context, index) {
+                    final res = results[index];
+                    return ListTile(
+                      title: Text(res.name),
+                      subtitle: Text(res.sname),
+                    );
+                  },
+                );
+              } else if (snapshot.hasError) {
+                return Text('${snapshot.error}');
+              } else {
+                return Center(child: CircularProgressIndicator());
+              }
             },
           ),
-          Expanded(
-            child: FutureBuilder<List<Plants>>(
-              future: _plants,
-              builder: (context, snapshot) {
-                if (snapshot.hasData) {
-                  final results = snapshot.data!;
-                  return ListView.builder(
-                    itemCount: results.length,
-                    itemBuilder: (context, index) {
-                      final res = results[index];
-                      return ListTile(
-                        title: Text(res.name),
-                        subtitle: Text(res.sname),
-                      );
-                    },
-                  );
-                } else if (snapshot.hasError) {
-                  return Text('${snapshot.error}');
-                } else {
-                  return Center(child: CircularProgressIndicator());
-                }
-              },
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

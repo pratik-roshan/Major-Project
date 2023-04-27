@@ -2,6 +2,8 @@
 
 import 'package:flutter/material.dart';
 
+import '../details/detail.dart';
+
 class SearchWidget extends StatefulWidget {
   final Function(String) onSearch;
 
@@ -24,6 +26,12 @@ class _SearchWidgetState extends State<SearchWidget> {
   Widget build(BuildContext context) {
     return TextField(
       controller: _controller,
+      // onTap: () {
+      //   Navigator.push(
+      //       context,
+      //       MaterialPageRoute(
+      //           builder: (context) => Details_Plant(plant:)));
+      // },
       decoration: InputDecoration(
         fillColor: Colors.greenAccent,
         hintText: 'Search',

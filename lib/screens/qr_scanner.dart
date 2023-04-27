@@ -138,12 +138,12 @@ class ImageScannerState extends State<ImageScanner> {
                 itemCount: snapshot.data?.length,
                 itemBuilder: (context, i) {
                   return ListTile(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Details_Plant()));
-                    },
+                    // onTap: () {
+                    //   Navigator.push(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //           builder: (context) => const Details_Plant()));
+                    // },
                     // leading: CircleAvatar(
                     //   radius: 40,
                     //   backgroundImage: snapshot.data![i]['photo'],

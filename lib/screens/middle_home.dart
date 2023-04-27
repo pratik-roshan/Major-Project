@@ -1,5 +1,7 @@
 import 'dart:convert';
+import 'dart:math';
 import 'package:apothecary/details/detail.dart';
+import 'package:apothecary/models/plants_model.dart';
 import 'package:http/http.dart' as http;
 // import 'package:apothecary/details/detail.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +16,7 @@ class HomePageMiddle extends StatefulWidget {
 
 class _HomePageMiddleState extends State<HomePageMiddle> {
   // Plants allplants = Plants();
+  List<Plants> allplants = [];
   @override
   void initState() {
     getAllInfo();
@@ -23,60 +26,88 @@ class _HomePageMiddleState extends State<HomePageMiddle> {
   String baseUrl = 'https://apothecary.up.railway.app/';
 
   Future<List> getAllInfo() async {
-    try {
-      var response = await http.get(Uri.parse(baseUrl));
-      print(response.body);
-      if (response.statusCode == 200) {
-        print(response.body);
-        return jsonDecode(response.body);
+    final response = await http.get(Uri.parse(baseUrl));
+    if (response.statusCode == 200) {
+      final body = response.body;
+      if (body != null && body.isNotEmpty) {
+        final jsonData = json.decode(response.body) as List<dynamic>;
+        final plants = jsonData.map((e) => Plants.fromJson(e)).toList();
+        setState(() {
+          allplants = plants;
+        });
       } else {
-        return Future.error('Server error');
+        throw Exception('Failed to load data: empty response body');
       }
-    } catch (e) {
-      return Future.error(e);
+    } else {
+      throw Exception('Failed to load data: ${response.statusCode}');
     }
+    return Future.error(e);
   }
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<List>(
-        future: getAllInfo(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            // print(snapshot);
-            return ListView.builder(
-                itemCount: snapshot.data?.length,
-                itemBuilder: (context, i) {
-                  return ListTile(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const Details_Plant()));
-                    },
-                    leading: CircleAvatar(
-                      radius: 40,
-                      backgroundImage: NetworkImage(snapshot.data![i]['photo']),
-                    ),
-                    title: Text(
-                      snapshot.data![i]['name'],
-                      style: TextStyle(fontSize: 20),
-                    ),
-                    subtitle: Text(
-                      snapshot.data![i]['sname'],
-                      style: TextStyle(fontSize: 15),
-                    ),
-                    trailing: Icon(
-                      Icons.info,
-                    ),
-                  );
-                });
-          } else {
-            return const Center(
-              child: Text('No Data'),
-            );
-          }
+    return ListView.builder(
+        itemCount: allplants.length,
+        itemBuilder: (context, index) {
+          final plant = allplants[index];
+          return GestureDetector(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Details_Plant(plant: plant)));
+            },
+            child: ListTile(
+              title: Text(
+                plant.name,
+                style: TextStyle(fontSize: 18),
+              ),
+              subtitle: Text(plant.sname),
+              leading: CircleAvatar(
+                radius: 40,
+                backgroundImage: NetworkImage(plant.photo),
+              ),
+            ),
+          );
         });
+    // return FutureBuilder<List>(
+    //     future: getAllInfo(),
+    //     builder: (context, snapshot) {
+    //       if (snapshot.hasData) {
+    //         // print(snapshot);
+    //         return ListView.builder(
+    //             itemCount: snapshot.data?.length,
+    //             itemBuilder: (context, i) {
+    //               return ListTile(
+    //                 onTap: () {
+    //                   Navigator.push(
+    //                       context,
+    //                       MaterialPageRoute(
+    //                           builder: (context) => const Details_Plant()));
+    //                 },
+    //                 leading: CircleAvatar(
+    //                   radius: 40,
+    //                   backgroundImage: NetworkImage(snapshot.data![i]['photo']),
+    //                 ),
+    //                 title: Text(
+    //                   snapshot.data![i]['name'],
+    //                   style: TextStyle(fontSize: 20),
+    //                 ),
+    //                 subtitle: Text(
+    //                   snapshot.data![i]['sname'],
+    //                   style: TextStyle(fontSize: 15),
+    //                 ),
+    //                 trailing: Icon(
+    //                   Icons.info,
+    //                 ),
+    //               );
+    //             });
+    //       } else {
+    //         return const Center(
+    //           child: Text('No Data'),
+    //         );
+    //       }
+    //     });
   }
   // // return Scaffold(
   //     body: Container(
@@ -85,6 +116,12 @@ class _HomePageMiddleState extends State<HomePageMiddle> {
   //     onPressed: getAllInfo,
   //   ),
   // ));
+}
+
+@override
+Widget build(BuildContext context) {
+  // TODO: implement build
+  throw UnimplementedError();
 }
 
 // // ignore_for_file: prefer_const_constructors
@@ -286,3 +323,4 @@ class _HomePageMiddleState extends State<HomePageMiddle> {
 //   }
 // }
 // }
+
