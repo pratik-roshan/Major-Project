@@ -1,16 +1,25 @@
-# apothecary
+# Apothecary: Plant Identification
 
-A new Flutter project.
+Apothecary is a mobile application designed to efficiently identify different flowers and plants. It leverages Dart programming language with Flutter framework for frontend development and Python with Image Processing algorithms for distinguishing between flowers or plants.
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter application.
+- **Plant Identification**: The application can identify various flowers and plants.
+- **Dart and Flutter**: Utilizes Dart programming language and Flutter framework for the frontend.
+- **Python and Image Processing**: Uses Python with Image Processing algorithms for accurate identification.
 
-A few resources to get you started if this is your first Flutter project:
+## Technologies Used
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- Dart
+- Flutter
+- Python
+- Image Processing
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## How to Use
+
+1. Clone the repository to your local machine:
+```bash
+git clone https://github.com/pratik-roshan/Major-Project.git
+```
+2. Follow the installation and setup instructions.
+3. Run the application on your mobile device.
